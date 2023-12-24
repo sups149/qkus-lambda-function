@@ -1,0 +1,16 @@
+quarkus:
+  http:
+    root-path: /api
+
+quarkus-amazon-lambda:
+  start-api:
+    path: /api
+    port: 8080
+    use-static-resources: true
+  function:
+    name: YourLambdaFunction
+    runtime: provided
+  events:
+    - http:
+        path: /your-endpoint
+        method: ANY
